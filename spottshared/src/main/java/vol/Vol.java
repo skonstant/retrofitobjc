@@ -5,7 +5,11 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import javax.net.ssl.*;
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.List;
 
 /**
@@ -15,15 +19,16 @@ public class Vol {
 
 	public List<Repo> parse() {
 		new Gson().toJson("ello");
-		new OkHttpClient();
-		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("https://api.github.com")
-				.addConverterFactory(GsonConverterFactory.create())
-				.build();
-        try {
-            return retrofit.create(GitHubService.class).listRepos("skonstant").execute().body();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
+
+            try {
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://api.github.com")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+                return retrofit.create(GitHubService.class).listRepos("skonstant").execute().body();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
     }
 }
