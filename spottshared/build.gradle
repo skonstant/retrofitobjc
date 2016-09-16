@@ -23,7 +23,7 @@ j2objcConfig {
     translateArgs '--prefixes', 'src/main/resources/prefixes.properties'
 
     // Omit these two lines if you don't configure your Xcode project with CocoaPods
-    xcodeProjectDir '../spottios/SPOTT'  //  suggested directory name
+    xcodeProjectDir '../SPOTT'  //  suggested directory name
     xcodeTargetsIos 'SPOTT', 'SPOTTTests'  // replace with your iOS targets
 
     finalConfigure()          // Must be last call to configuration

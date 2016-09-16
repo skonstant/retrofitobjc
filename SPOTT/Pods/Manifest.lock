@@ -1,0 +1,19 @@
+PODS:
+  - j2objc-shared-debug (1.0)
+  - j2objc-shared-release (1.0)
+
+DEPENDENCIES:
+  - j2objc-shared-debug (from `../spottshared/build/j2objcOutputs`)
+  - j2objc-shared-release (from `../spottshared/build/j2objcOutputs`)
+
+EXTERNAL SOURCES:
+  j2objc-shared-debug:
+    :path: ../spottshared/build/j2objcOutputs
+  j2objc-shared-release:
+    :path: ../spottshared/build/j2objcOutputs
+
+SPEC CHECKSUMS:
+  j2objc-shared-debug: ac568409eb8a1871cd216ab25b69544dc564ce79
+  j2objc-shared-release: 54269b2b7f292284f8374f3665c002648847c248
+
+COCOAPODS: 0.39.0

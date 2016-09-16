@@ -13,7 +13,8 @@ public class Vol {
 	public List<Repo> parse() {
 		new Gson().toJson("ello");
 		RestAdapter.Builder builder = new RestAdapter.Builder()
-				.setEndpoint("https://api.github.com");
+				.setEndpoint("https://api.github.com")
+				.setLogLevel(RestAdapter.LogLevel.FULL);
 		RestAdapter adapter = builder.build();
 		return adapter.create(GitHubService.class).listRepos("skonstant");
     }
