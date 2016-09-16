@@ -1,15 +1,8 @@
 package vol;
 
 import com.google.gson.Gson;
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit.RestAdapter;
 
-import javax.net.ssl.*;
-import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
 import java.util.List;
 
 /**
@@ -19,16 +12,9 @@ public class Vol {
 
 	public List<Repo> parse() {
 		new Gson().toJson("ello");
-
-
-            try {
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://api.github.com")
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-                return retrofit.create(GitHubService.class).listRepos("skonstant").execute().body();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+		RestAdapter.Builder builder = new RestAdapter.Builder()
+				.setEndpoint("https://api.github.com");
+		RestAdapter adapter = builder.build();
+		return adapter.create(GitHubService.class).listRepos("skonstant");
     }
 }
